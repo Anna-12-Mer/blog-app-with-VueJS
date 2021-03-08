@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog app</title>
-    <!-- Add vuejs -->
-    <script src="https://unpkg.com/vue"></script>
-</head>
-
-<body>
-    <div id="app">
-        <p> {{ greet('Evning')}}</p>
-        <a v-bind:href="githublink"> Github link</a>
-        <!--when you need to bind you gonna use v-bind: or : and without the {{}} -->
-    </div>
-    <script src="app.js"></script>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <title>blog-app</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+  </body>
 </html>
