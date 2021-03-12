@@ -1,9 +1,14 @@
 <template>
   <div id="show-blogs">
-    <h1>All Blog Articles</h1>
-    <div v-for="blog in blogs" :key="blog" class="single-blog">
-      <h3>{{blog.title}}</h3>
-      <article> {{blog.body}} </article>
+    <br>
+
+    <div class="d-flex justify-content-between">
+      <h2>All Blog Articles</h2>
+      <input type="text" v-model="search" placeholder="search blogs..."/>
+    </div>
+    <div v-for="blog in filterBlogs" :key="blog" class="single-blog">
+      <h3>{{blog.title | to-upercase }}</h3>
+      <article> {{blog.body | snippet}} </article>
     </div>
   </div>
 </template>
@@ -12,7 +17,8 @@
 export default {
   data() {
     return {
-      blogs:[]
+      blogs:[],
+      search:''
     }
   },
   created(){
@@ -22,6 +28,13 @@ export default {
     }).catch((err) => {
         console.log(err);
     });
+  },
+  computed: {
+    filterBlogs: function(){
+      return this.blogs.filter((blog)=>{
+        return blog.title.match(this.search)
+      })
+    }
   }
 }
 </script>
